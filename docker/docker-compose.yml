@@ -1,0 +1,15 @@
+version: '3.9'
+
+services:
+  mongodb:
+    container_name: mongodb
+    build: ./mongoDb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb:/var/lib/mongo/data
+    restart: always
+
+volumes:
+  mongodb:
+    driver: local

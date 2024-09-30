@@ -1,0 +1,30 @@
+:host {
+    display: block;
+    height: 100%;
+    overflow: auto;
+}
+
+.justify_space_between {
+    justify-content: space-between;
+}
+
+.f_column {
+    flex-direction: column;
+}
+
+.full_width {
+    width: 100%;
+}
+
+.line-clamp {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    white-space: pre-wrap;
+}
+
+.product-image{
+    max-width: 150px; 
+    max-height: 150px;
+}

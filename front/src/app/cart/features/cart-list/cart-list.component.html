@@ -1,0 +1,39 @@
+<h1 class="text-center">Panier</h1>
+
+<p-dataView #dv [value]="products" [emptyMessage]="'Aucun article dans le panier'">
+    <ng-template pTemplate="list" let-products>
+        @for (product of products; track product) {
+            <p-card class="block mb-2 relative">
+                <div class="flex items-center">
+                    <div class="mr-4">
+                        <img 
+                        [src]="product.image" 
+                        alt="{{ product.name }}" 
+                        class="product-image w-20 h-20 object-cover rounded" 
+                        (error)="onImageError($event)">
+                    </div>
+                    <div class="flex f_column full_width">
+                        <div class="flex items-center justify_space_between">
+                            <span class="font-medium text-secondary text-sm">{{ product.category }}</span>
+                            <p-badge [value]="product.quantity" badgeSize="large" severity="info"/>
+                        </div>
+                        <div class="text-lg font-medium text-900 mt-2">{{ product.name }}</div>
+                        <div class="text-lg font-medium text-900 mt-2">{{ product.price.toFixed(2) }} €</div>
+                        <div class="line-clamp">{{ product.description }}</div>
+                        
+                    </div>
+                    
+                </div>
+                <ng-template pTemplate="footer">
+                        <div class="flex gap-3 mt-1">
+                            <p-button label="Supprimer du panier" severity="danger" (onClick)="onRemove(product)" />
+                        </div>
+                    </ng-template>
+            </p-card>
+            <div>
+                {{ product[0] }}
+                {{ product[1] }}
+            </div>
+        }
+    </ng-template>
+</p-dataView>
